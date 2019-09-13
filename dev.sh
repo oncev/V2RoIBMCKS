@@ -74,7 +74,7 @@ ibmcloud ks init
 
 # 安装 kubectl
 echo -e '\nDownload kubectl ...'
-KUBEVER='v'$(ibmcloud ks cluster-get $CLUSTER_NAME | grep 'Version' | awk '{print $2}' | cut -d '_' -f1)
+KUBEVER='v'$(ibmcloud ks cluster get $CLUSTER_NAME | grep 'Version' | awk '{print $2}' | cut -d '_' -f1)
 curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/${KUBEVER}/bin/linux/amd64/kubectl
 echo -e '\nInstall kubectl ...'
 chmod +x ./kubectl
@@ -82,7 +82,7 @@ sudo mv ./kubectl /usr/local/bin/kubectl
 echo
 
 # 显示 kubectl 版本，提示配置运行环境 
-KUBE_ENV=$(ibmcloud ks cluster-config $CLUSTER_NAME --export -s)
+KUBE_ENV=$(ibmcloud ks cluster config $CLUSTER_NAME --export -s)
 $KUBE_ENV
 echo -e '\nKubectl version:'
 kubectl version  --short
