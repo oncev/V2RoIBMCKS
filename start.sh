@@ -140,6 +140,7 @@ echo
 # 安装 IBM Cloud CLI 插件
 echo -e '\nInstall IBM Cloud CLI plugin ...'
 ibmcloud plugin install container-service -r Bluemix
+ibmcloud plugin install container-registry -r Bluemix
 ibmcloud ks init
 
 # 设置 IBMCR_DOMAIN
